@@ -25,30 +25,7 @@ For More information please visit [Kode Krunch](https://www.kode-krunch.com/):
 
 - NodeJS >= v12.22.5
 
-### Cloning the Repo:
-
-```
-git clone https://github.com/eXsio/php-symfony-arch.git
-```
-
-### Running the Back-end:
-```
-cd php-symfony-arch/
-composer install
-bin/console lexik:jwt:generate-keypair
-symfony server:start --no-tls
-```
-
-### Running the Front-end:
-
-```
-cd php-symfony-arch/client
-npm install
-npm run start-with-backend
-```
-
-#### navigate to:
-
-```
-http://localhost:4200/
-```
+### Running app in docker:
+- run `docker-compose up -d`
+- run `docker-compose exec php php bin/console lexik:jwt:generate-keypair`
+- navigate to: `http://localhost:4200/`

@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  # nodejs
+  node:
+    image: node
+    volumes:
+      - ./client:/app/client
+    ports:
+      - 4200:4200
+    working_dir: /app/client
+    command: bash -c "npm install && npm run start-with-backend"
+    restart: unless-stopped
+
+  # php
+  php:
+    image: composer:2
+    volumes:
+      - ./:/app
+    command: bash -c "composer install --no-interaction --prefer-dist && php -S 0.0.0.0:8000 -t /app/public"
+    restart: unless-stopped
